@@ -5,12 +5,10 @@ require ('pry-byebug')
 require_relative ('models/game')
 also_reload('./models/*')
 
-also_reload('models/*')
-
 get('/:player_1_input/:player_2_input') do
   game = Game.new(params[:player_1_input], params[:player_2_input])
   @outcome = game.outcome()
-  erb :result
+  erb (:result)
 end
 
 get '/' do
